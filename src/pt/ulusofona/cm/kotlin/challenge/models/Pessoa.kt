@@ -35,7 +35,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
             throw VeiculoNaoEncontradoException()
         }
         if (veiculo.requerCarta() && carta == null) {
-            throw PessoaSemCartaException()
+            throw PessoaSemCartaException(nome)
         }
         veiculo.moverPara(x, y)
         moverPara(x, y) // mover a pessoa
