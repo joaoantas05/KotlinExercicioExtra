@@ -19,7 +19,7 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador) , 
     }
 
     override fun moverPara(x: Int, y: Int) {
-        posicao.alterarPosicaoPara(x, y)
+        posicao!!.alterarPosicaoPara(x, y)
     }
 
     private fun dataFormatada(): String {
