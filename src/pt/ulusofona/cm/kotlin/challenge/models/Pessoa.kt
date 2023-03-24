@@ -8,22 +8,23 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
-    val veiculos: List<Veiculo> = listOf()
+    var veiculos: List<Veiculo> = listOf()
     var carta: Carta? = null
     var posicao: Posicao = Posicao(0, 0)
 
     fun comprarVeiculo(veiculo: Veiculo) {
-        veiculos.plus(veiculo)
+        veiculos = veiculos.plus(veiculo)
     }
 
     fun pesquisarVeiculo(identificador: String): Veiculo? {
-        return veiculos.find { it.identificador == identificador }
+        val veiculo = veiculos.find { it.identificador == identificador }
+        return if (veiculo != null) veiculo else throw VeiculoNaoEncontradoException()
     }
 
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
         val veiculo = pesquisarVeiculo(identificador)
         if (veiculo != null) {
-            veiculos.minus(veiculo)
+            veiculos = veiculos.minus(veiculo)
             comprador.comprarVeiculo(veiculo)
         }
     }
@@ -37,7 +38,9 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
             throw PessoaSemCartaException()
         }
         veiculo.moverPara(x, y)
+        moverPara(x, y) // mover a pessoa
     }
+
 
     fun temCarta(): Boolean {
         return carta != null
@@ -46,7 +49,8 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
     fun tirarCarta(): Carta {
         val idade = calculaIdade(dataDeNascimento)
         if (idade >= 18) {
-            return Carta()
+            carta = Carta()
+            return carta as Carta
         } else {
             throw MenorDeIdadeException()
         }
