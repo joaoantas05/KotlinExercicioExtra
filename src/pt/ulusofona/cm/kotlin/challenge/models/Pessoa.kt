@@ -7,7 +7,7 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
+class Pessoa(val nome: String, val dataNascimento: Date) : Movimentavel {
     val veiculos: List<Veiculo> = listOf()
     var carta: Carta? = null
     var posicao: Posicao = Posicao(0, 0)
@@ -69,7 +69,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
 
     private fun dataFormatada(): String {
         val formato = SimpleDateFormat("dd-MM-yyyy")
-        val data = formato.format(dataDeNascimento)
+        val data = formato.format(dataNascimento)
         return data.toString()
     }
 
