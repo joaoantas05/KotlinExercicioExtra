@@ -1,19 +1,20 @@
 package pt.ulusofona.cm.kotlin.challenge.models
 
+import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import java.text.SimpleDateFormat
 
-class Carro(identificador: String, val motor: Motor) : Veiculo(identificador) {
-    var ligado : Boolean = false
+class Carro(identificador: String, val motor: Motor) : Veiculo(identificador) , Ligavel {
+    //var ligado : Boolean = false
 
-    fun ligar() {
+    override fun ligar() {
         motor.ligar()
     }
 
-    fun desligar() {
+    override fun desligar() {
         motor.desligar()
     }
 
-    fun estaLigado(): Boolean {
+    override fun estaLigado(): Boolean {
         return motor.estaLigado()
     }
 
