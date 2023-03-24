@@ -43,7 +43,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
         return carta != null
     }
 
-    fun tirarCarta(dataDeNascimento: Date): Carta {
+    fun tirarCarta(): Carta {
         val idade = calculaIdade(dataDeNascimento)
         if (idade >= 18) {
             return Carta()
