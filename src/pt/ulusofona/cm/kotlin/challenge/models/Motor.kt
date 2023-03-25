@@ -15,7 +15,7 @@ class Motor(val cavalos: Int, val cilindrada: Int) : Ligavel {
         }
     }
 
-    override fun desligar()  {
+    override fun desligar() {
         if (!ligado) {
             throw VeiculoDesligadoException()
         } else {

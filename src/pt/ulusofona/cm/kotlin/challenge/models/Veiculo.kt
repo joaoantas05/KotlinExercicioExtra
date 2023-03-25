@@ -11,6 +11,10 @@ open class Veiculo(val identificador: String) : Movimentavel {
         return false
     }
 
+    open fun setDataDeAquisicao(dataNova: Date) {
+        dataDeAquisicao = dataNova
+    }
+
     override fun moverPara(x: Int, y: Int) {
         posicao!!.alterarPosicaoPara(x, y)
     }

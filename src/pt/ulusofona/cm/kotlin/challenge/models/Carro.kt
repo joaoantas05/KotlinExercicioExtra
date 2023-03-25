@@ -3,7 +3,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import java.text.SimpleDateFormat
 
-class Carro(identificador: String, val motor: Motor) : Veiculo(identificador) , Ligavel {
+class Carro(identificador: String, val motor: Motor) : Veiculo(identificador), Ligavel {
     //var ligado : Boolean = false
 
     override fun ligar() {
@@ -19,7 +19,7 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador) , 
     }
 
     override fun moverPara(x: Int, y: Int) {
-        posicao.alterarPosicaoPara(x, y)
+        posicao!!.alterarPosicaoPara(x, y)
     }
 
     private fun dataFormatada(): String {
