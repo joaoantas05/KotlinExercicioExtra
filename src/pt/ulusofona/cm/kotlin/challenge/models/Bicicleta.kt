@@ -8,8 +8,8 @@ class Bicicleta(identificador: String) : Veiculo(identificador) {
     }
 
     private fun dataFormatada(): String {
-        val formato = SimpleDateFormat("dd-MM-yyyy")
-        val data = formato.format(dataDeAquisicao)
+        val dataFormato = SimpleDateFormat("dd-MM-yyyy")
+        val data = dataFormato.format(dataDeAquisicao)
         return data.toString()
     }
 

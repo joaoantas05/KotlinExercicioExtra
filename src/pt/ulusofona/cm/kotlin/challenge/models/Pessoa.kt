@@ -24,6 +24,7 @@ class Pessoa(val nome: String, val dataDeNascimento: Date) : Movimentavel {
     fun venderVeiculo(identificador: String, comprador: Pessoa) {
         val veiculo = pesquisarVeiculo(identificador)
         if (veiculo != null) {
+            veiculo.setDataDeAquisicao()
             veiculos = veiculos.minus(veiculo)
             comprador.comprarVeiculo(veiculo)
         }
