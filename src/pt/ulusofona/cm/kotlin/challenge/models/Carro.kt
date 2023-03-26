@@ -19,7 +19,14 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador), L
     }
 
     override fun moverPara(x: Int, y: Int) {
-        posicao!!.alterarPosicaoPara(x, y)
+        if (estaLigado()) {
+            posicao.alterarPosicaoPara(x, y)
+            desligar()
+        } else {
+            ligar()
+            posicao.alterarPosicaoPara(x, y)
+            desligar()
+        }
     }
 
     fun dataFormato(): String {
@@ -32,6 +39,8 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador), L
     }
 
     override fun toString(): String {
-        return "Carro | $identificador | ${dataDeAquisicao} | $posicao"
+        val formato = SimpleDateFormat("dd-MM-yyyy")
+        return "Carro | $identificador | ${formato.format(dataDeAquisicao)} | $posicao"
     }
+
 }
