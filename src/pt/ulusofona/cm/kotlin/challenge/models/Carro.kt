@@ -30,8 +30,8 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador), L
     }
 
     fun dataFormato(): String {
-        val formato = SimpleDateFormat("dd-MM-yyyy")
-        return formato.format(dataDeAquisicao)
+        val dataFormato = SimpleDateFormat("dd-MM-yyyy")
+        return dataFormato.format(dataDeAquisicao)
     }
 
     override fun requerCarta(): Boolean {
