@@ -11,8 +11,8 @@ open class Veiculo(val identificador: String) : Movimentavel {
         return false
     }
 
-    fun setDataDeAquisicao(dataNova: Date) {
-        dataDeAquisicao = dataNova
+    fun setDataDeAquisicao() {
+        dataDeAquisicao = Date()
     }
 
     override fun moverPara(x: Int, y: Int) {

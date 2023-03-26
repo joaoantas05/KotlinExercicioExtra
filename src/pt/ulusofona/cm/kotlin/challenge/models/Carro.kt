@@ -22,10 +22,9 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador), L
         posicao!!.alterarPosicaoPara(x, y)
     }
 
-    private fun dataFormatada(): String {
+    fun dataFormato(): String {
         val formato = SimpleDateFormat("dd-MM-yyyy")
-        val data = formato.format(dataDeAquisicao)
-        return data.toString()
+        return formato.format(dataDeAquisicao)
     }
 
     override fun requerCarta(): Boolean {
@@ -33,6 +32,6 @@ class Carro(identificador: String, val motor: Motor) : Veiculo(identificador), L
     }
 
     override fun toString(): String {
-        return "Carro | $identificador | ${dataFormatada()} | $posicao"
+        return "Carro | $identificador | ${dataDeAquisicao} | $posicao"
     }
 }
